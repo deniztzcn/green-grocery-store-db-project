@@ -136,7 +136,7 @@ END;
 
 -   After inserting a record to PRODUCT table, it gives information
     about the most expensive price in the green grocery store.
-
+```sql
 CREATE or REPLACE TRIGGER after_insert_product_expensive
 
 AFTER INSERT
@@ -157,7 +157,7 @@ DBMS_OUTPUT.PUT_LINE('The most expensive price in the store is ' \|\|
 v_price);
 
 END;
-
+```
 **BEFORE DELETE(ROW TRIGGER)**
 
 -   The trigger deletes all the related foreign keys in other tables
