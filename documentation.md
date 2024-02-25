@@ -1,6 +1,6 @@
 **SBD PROJECT 23/24**
 
-> **Deniz Tolga Tezcan  
+> Deniz Tolga Tezcan  
 
 ***PL/SQL***
 
