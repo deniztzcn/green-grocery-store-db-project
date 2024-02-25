@@ -1,15 +1,6 @@
 **SBD PROJECT 23/24**
 
 > **Deniz Tolga Tezcan  
-> s26772  
-> Group: 24c**
-
--   This project’s aim is to create a database for a Green Grocery Store
-    with procedures and triggers.
-
--   The database consists of Product, Category, Customer, Supplier,
-    Supply_Product, Purchase, Basket, Deleted_Products, Price_Changes
-    entities.
 
 ***PL/SQL***
 
