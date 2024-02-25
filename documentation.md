@@ -8,31 +8,19 @@
 
 -   Creates primary key automatically if it was null during insertion
     operation.
-'''sql
+```sql
 CREATE OR REPLACE TRIGGER auto_increase_id
-
 BEFORE INSERT ON PRODUCT
-
 FOR EACH ROW
-
 DECLARE
-
 v_id INTEGER;
-
 BEGIN
-
-SELECT NVL(MAX(PR_ID),0) + 1
-
-INTO v_id FROM PRODUCT;
-
+SELECT NVL(MAX(PR_ID),0) + 1 INTO v_id FROM PRODUCT;
 IF :NEW.PR_ID IS NULL THEN
-
 :NEW.PR_ID := v_id;
-
 END IF;
-
 END;
-'''
+```
 
 **AFTER INSERT OR UPDATE (ROW TRIGGER)**
 
