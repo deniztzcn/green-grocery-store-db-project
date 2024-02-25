@@ -131,7 +131,7 @@ DBMS_OUTPUT.PUT_LINE(v_record.PR_NAME \|\| ': ' \|\| v_record.PRICE);
 END LOOP;
 
 END;
-```sql
+```
 **AFTER INSERT (TABLE TRIGGER)**
 
 -   After inserting a record to PRODUCT table, it gives information
@@ -162,7 +162,7 @@ END;
 
 -   The trigger deletes all the related foreign keys in other tables
     before deleting the record from PRODUCT table.
-
+```sql
 CREATE OR REPLACE TRIGGER before_delete
 
 BEFORE DELETE
@@ -219,12 +219,12 @@ PRICE_CHANGES');
 END IF;
 
 END;
-
+```
 **AFTER DELETE(ROW TRIGGER)**
 
 -   The trigger insert a record which is deleted to DELETED_PRODUCTS
     table and prints information about which product is deleted.
-
+```sql
 CREATE OR REPLACE TRIGGER after_delete
 
 AFTER DELETE
@@ -246,12 +246,12 @@ INSERT INTO DELETED_PRODUCTS VALUES (v_id,:OLD.PR_NAME,SYSDATE);
 DBMS_OUTPUT.PUT_LINE(:OLD.PR_NAME \|\| ' is deleted.');
 
 END;
-
+```
 **PROCEDURE-1 (CURSOR)**
 
 -   Applies discount for the products which are about to be expired in
     15 days.
-
+```sql
 CREATE OR REPLACE PROCEDURE discount
 
 AS
@@ -286,12 +286,12 @@ END IF;
 END LOOP;
 
 END;
-
+```
 **PROCEDURE-2 (EXCEPTION)**
 
 -   This procedure checks if there is enough amount of product to be
     added. If there is not, it raises exception.
-
+```sql
 CREAET OR REPLACE PROCEDURE add_basket(v_b_id INTEGER,v_p_id
 INTEGER,v_kg NUMBER DEFAULT 1, v_purc_id INTEGER)
 
@@ -322,12 +322,12 @@ WHEN not_enough_product THEN
 DBMS_OUTPUT.PUT_LINE('Not enough product');
 
 END;
-
+```
 **PROCEDURE-3 (CURSOR)**
 
 -   It shows the products which are imported. (Assumed the green grocery
     store is located in Poland).
-
+```sql
 CREATE OR REPLACE PROCEDURE show_imports
 
 AS
@@ -353,11 +353,11 @@ DBMS_OUTPUT.PUT_LINE(c_row.PR_NAME \|\| ' -\> ' \|\| c_row.S_COUNTRY);
 END LOOP;
 
 END;
-
+```
 **ADDITIONAL FUNCTION**
 
 -   It computes the available kg of the given product id.
-
+```sql
 create or replace FUNCTION measure_available_products(v_pr_id INTEGER)
 
 RETURN SUPPLY_PRODUCT.KG%TYPE
@@ -431,7 +431,7 @@ RETURN v_total;
 END IF;
 
 END;
-
+```
 ***T – SQL***
 
 **1-**
