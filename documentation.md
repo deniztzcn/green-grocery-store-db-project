@@ -27,7 +27,7 @@ END;
 -   Updates price and expiration date automatically on PRODUCT table
     after inserting to SUPPLY_PRODUCT table or updating the
     SUPPLY_PRODUCT table.
-
+```sql
 CREATE OR REPLACE TRIGGER update_price_and_date_trigger
 
 AFTER INSERT OR UPDATE OF COST,KG,DELIVERY_DATE
@@ -53,6 +53,7 @@ UPDATE PRODUCT SET PRICE = v_price WHERE PR_ID = :NEW.PR_ID;
 UPDATE PRODUCT SET EXP_DATE = v_date WHERE PR_ID = :NEW.PR_ID;
 
 END;
+```
 
 **AFTER UPDATE (ROW TRIGGER)**
 
