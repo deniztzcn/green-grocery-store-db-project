@@ -8,8 +8,8 @@
 
 -   Creates primary key automatically if it was null during insertion
     operation.
-
-''' CREATE OR REPLACE TRIGGER auto_increase_id
+'''sql
+CREATE OR REPLACE TRIGGER auto_increase_id
 
 BEFORE INSERT ON PRODUCT
 
@@ -31,7 +31,8 @@ IF :NEW.PR_ID IS NULL THEN
 
 END IF;
 
-END; '''
+END;
+'''
 
 **AFTER INSERT OR UPDATE (ROW TRIGGER)**
 
