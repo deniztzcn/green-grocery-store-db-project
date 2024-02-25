@@ -60,7 +60,7 @@ END;
 -   After updating a price of a product, triggers insert this changes to
     PRICE_CHANGES table also automatically assign primary key for
     PRICE_CHANGES table.
-
+```sql
 CREATE OR REPLACE TRIGGER UPDATE_PRODUCT_PRICE
 
 AFTER UPDATE OF PRICE
@@ -95,6 +95,7 @@ VALUES(v_id,v_old_price,v_new_price,:OLD.PR_ID,sysdate);
 END IF;
 
 END;
+```
 
 **BEFORE UPDATE (CURSOR)**
 
@@ -102,7 +103,7 @@ END;
     before updating the SUPPLY_PRODUCT table.
 
 -   Assumed “SET SERVEROUTPUT ON” executed.
-
+```sql
 CREATE OR REPLACE TRIGGER before_update_trigger
 
 BEFORE UPDATE OF COST,KG,DELIVERY_DATE
@@ -130,7 +131,7 @@ DBMS_OUTPUT.PUT_LINE(v_record.PR_NAME \|\| ': ' \|\| v_record.PRICE);
 END LOOP;
 
 END;
-
+```sql
 **AFTER INSERT (TABLE TRIGGER)**
 
 -   After inserting a record to PRODUCT table, it gives information
