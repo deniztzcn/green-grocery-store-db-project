@@ -435,7 +435,7 @@ END;
 ***T – SQL***
 
 **1-**
-
+```sql
 CREATE TRIGGER auto_increase_id
 
 ON PRODUCT
@@ -461,9 +461,10 @@ ISNULL(PR_ID,@v_id),PR_NAME,CAT_ID,PRICE,EXP_DATE
 FROM INSERTED;
 
 END;
+```
 
 **2-**
-
+```sql
 CREATE TRIGGER update_price_and_date_trigger
 
 ON SUPPLY_PRODUCT
@@ -499,9 +500,10 @@ WHERE P.PR_ID = I.PR_ID;
 END
 
 END;
+```
 
 **3-**
-
+```sql
 CREATE TRIGGER update_product_price
 
 ON PRODUCT
@@ -555,9 +557,9 @@ DEALLOCATE price_cursor;
 END
 
 END;
-
+```
 **4-**
-
+```sql
 CREATE TRIGGER price_trigger_cursor
 
 ON PRICE_CHANGES
@@ -591,9 +593,9 @@ CLOSE my_cursor;
 DEALLOCATE my_cursor;
 
 END;
-
+```
 **5-**
-
+```sql
 CREATE TRIGGER expensive_product
 
 ON PRODUCT
@@ -612,10 +614,10 @@ PRINT 'The most expensive product in the store is ' + CAST(@v_price AS
 VARCHAR);
 
 END;
-
+```
 **6-**
-
-ALTER TRIGGER delete_fk_trigger
+```sql
+CREATE TRIGGER delete_fk_trigger
 
 ON PRODUCT
 
@@ -733,9 +735,9 @@ SELECT @v_d_id = ISNULL(MAX(ID),0) + 1 FROM DELETED_PRODUCTS;
 INSERT INTO DELETED_PRODUCTS VALUES(@v_id,@v_name,GETDATE());
 
 END;
-
+```
 **PROCEDURE-1 (RESULT SET)**
-
+```sql
 CREATE PROCEDURE show_products_by_country
 
 @v_country VARCHAR(20)
@@ -755,9 +757,9 @@ AND SUPPLIER.S_ID = SUPPLY_PRODUCT.S_ID
 AND S_COUNTRY = @v_country;
 
 END;
-
+```
 **PROCEDURE-2 (RETURN)**
-
+```sql
 CREATE PROCEDURE show_total_number_of_fruits_or_vegetables_by_cat_id
 
 @cat_id INT
@@ -773,9 +775,9 @@ SELECT @result = COUNT(\*) FROM PRODUCT WHERE CAT_ID = @cat_id;
 RETURN @result;
 
 END;
-
+```
 **PROCEDURE-3 (OUTPUT)**
-
+```sql
 CREATE PROCEDURE show_how_many_times_bought
 
 @v_count INTEGER OUTPUT,
@@ -789,3 +791,4 @@ BEGIN
 SELECT @v_count = COUNT(\*) FROM BASKET WHERE PR_ID = @v_id;
 
 END;
+```
